@@ -11,8 +11,8 @@ export default persist(
     // computed
     totalPokemons: computed(state => state.pokemonsList.length),
     // actions
-    setPokemonsList: action(({pokemonList}, payload) => {
-      pokemonList = payload
+    setPokemonsList: action((state, payload) => {
+      state.pokemonsList = payload
     }),
     setError: action((state, error) => {
       state.error = error.message;
@@ -24,8 +24,6 @@ export default persist(
         setPokemonsList(pokemonList.results);
       } catch (e) {
         setError(e);
-      } finally {
-        
       }
     })
   },
