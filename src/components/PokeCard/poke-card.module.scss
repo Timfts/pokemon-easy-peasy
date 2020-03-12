@@ -1,0 +1,33 @@
+.root {
+  background-color:white;
+  height:300px;
+  box-shadow: 0 3px 10px 0 rgba(0,0,0,.1);
+  cursor:pointer;
+  padding: 20px;
+  display:flex;
+  flex-direction: column;
+  align-items:center;
+  transition: transform .2s ease-in;
+
+  &:hover{
+    transform: scale(1.05);
+  }
+}
+
+.pokemonImage{
+  background-color: #a3f7bf;
+  height:70%;
+  display:flex;
+  align-items:center;
+  justify-content:center;
+  margin-bottom:20px;
+  width:100%;
+  
+  img{
+    max-width:100px;
+  }
+}
+
+.title {
+  font-size:20px;
+}

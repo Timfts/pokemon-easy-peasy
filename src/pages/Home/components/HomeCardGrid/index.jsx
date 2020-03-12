@@ -1,7 +1,10 @@
-import HomePageGridStyle from './home-card-grid.module.scss'
+import React from 'react'
+import HomeCardGridStyle from './home-card-grid.module.scss'
 
-const HomePageGrid = () => {
-  return <div>grid</div>
-}
+const HomeCardGrid = ({children}) => (
+  <div className={HomeCardGridStyle.root}>
+    {children}
+  </div>
+)
 
-export default HomePageGrid
+export default HomeCardGrid

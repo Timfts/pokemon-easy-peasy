@@ -1,29 +1,25 @@
 import { useEffect } from "react";
-import { PokemonList as schema } from "../../api/schemas/pokemon";
-import { useStoreActions, action } from "easy-peasy";
+import { useStoreActions, useStoreState } from "easy-peasy";
 
 function useHome() {
-  const getPokemons = useStoreActions(
-    actions => !console.log(actions) && actions.PokemonModel.fetchPokemonsList
-  );
+  const { PokemonModel, ModalModel } = useStoreActions(actions => actions);
+  const { fetchPokemonsList } = PokemonModel;
+  const { setOpenModal } = ModalModel
+
+  const { pokemonsList } = useStoreState(state => state.PokemonModel);
 
   useEffect(() => {
-    getPokemons()
-    /*     const response = {
-      count: 5,
-      results: [
-        {
-          name: "teste",
-          url: "teste"
-        }
-      ]
-    };
-    const test = schema.cast(response, { stripUnknown: true });
-    console.log(test); */
+    fetchPokemonsList();
   }, []);
 
+  function openModal(modalName){
+    setOpenModal({modalName})
+  }
+
   return {
-    name: "teste"
+    name: "teste",
+    pokemonsList,
+    openModal
   };
 }
 
